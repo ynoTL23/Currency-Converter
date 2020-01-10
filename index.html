@@ -21,14 +21,14 @@
         </header>
         <section class="converter">
             <section>
-                <!-- START 'TO' SECTION -->
-                <div class="input-box" id="from-section">
+                <!-- START 'left' SECTION -->
+                <div class="input-box" id="left-section">
                     <h3>United States of America</h3>
                     <div class="currency-frame">
                         <div class="country-flag">
-                            <span class="flag-icon flag-icon-us"></span>
+                            <span id="left-flag" class="flag-icon flag-icon-us"></span>
                         </div>
-                        <select name="currency" id="currency">
+                        <select name="currency" id="currency-left">
                             <option id="br" value="BRL">Brazilian Real</option>
                             <option id="ca" value="CAD">Canadian Dollar</option>
                             <option id="de" value="EUR">Germany</option>
@@ -43,22 +43,22 @@
                     </div>
 
                     <div class="currency-input-frame">
-                        <span id="currency-symbol">$</span>
-                        <input class="currency-input" value="1">
+                        <span class="currency-symbol">$</span>
+                        <input id="left-currency-amount" class="currency-input" value="1">
                     </div>
                 </div>
-                <!-- END 'FROM' SECTION -->
+                <!-- END 'left' SECTION -->
 
                 <div class="exchange"><i class="fas fa-exchange-alt"></i></div>
 
-                <!-- START 'TO' SECTION -->
-                <div class="input-box" id="to-section">
+                <!-- START 'right' SECTION -->
+                <div class="input-box" id="right-section">
                     <h3>Canada</h3>
                     <div class="currency-frame">
                         <div class="country-flag">
-                            <span class="flag-icon flag-icon-ca"></span>
+                            <span id="right-flag" class="flag-icon flag-icon-ca"></span>
                         </div>
-                        <select name="currency" id="currency">
+                        <select name="currency" id="currency-right">
                             <option id="br" value="BRL">Brazilian Real</option>
                             <option id="ca" value="CAD" selected>Canadian Dollar</option>
                             <option id="de" value="EUR">Germany</option>
@@ -73,11 +73,11 @@
                     </div>
 
                     <div class="currency-input-frame">
-                        <span id="currency-symbol">$</span>
-                        <input class="currency-input">
+                        <span class="currency-symbol">$</span>
+                        <input id="right-currency-amount" class="currency-input">
                     </div>
                 </div>
-                <!-- END 'TO' SECTION -->
+                <!-- END 'right' SECTION -->
             </section>
         </section>
     </div>

@@ -106,13 +106,13 @@ header .title {
     color: #EAEAEA;
 }
 
-span#currency-symbol {
+span.currency-symbol {
     padding: 0.6rem;
     font-size: 4rem;
 }
 
-#from-section,
-#to-section {
+#left-section,
+#right-section {
     margin: auto;
     width: 19rem;
     height: 11rem;
