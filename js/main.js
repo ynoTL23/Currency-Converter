@@ -1,4 +1,5 @@
 const attribute = 'flag-icon flag-icon-' // the class for the flag
+const validChars = /[0-9]+/ // valid chars for input
 
 // Track when left's currency changes
 document.querySelector('#currency-left').addEventListener('change', (e) => {
@@ -6,7 +7,7 @@ document.querySelector('#currency-left').addEventListener('change', (e) => {
 
     // Change text
     changeText('left', countryCode)
-    
+
     // Change the flag
     changeFlag('left', countryCode)
 
@@ -18,10 +19,10 @@ document.querySelector('#currency-left').addEventListener('change', (e) => {
 // Track right side's currency changes
 document.querySelector('#currency-right').addEventListener('change', (e) => {
     const countryCode = e.target.selectedOptions[0].id // the country's code
-    
+
     // Change text
     changeText('right', countryCode)
-    
+
     // Change the flag
     changeFlag('right', countryCode)
 
@@ -31,13 +32,23 @@ document.querySelector('#currency-right').addEventListener('change', (e) => {
 })
 
 // dynamic rate updates
-document.querySelector('#left-currency-amount').addEventListener('input', () => {
-    calculateRate(leftCurrencyCode(), rightCurrencyCode(), amountInput('left'), amountOutput('right'))
+document.querySelector('#left-currency-amount').addEventListener('keypress', (e) => {
+    // check if key pressed is valid
+    if(!validChars.test(e.key)) {
+        e.preventDefault() // if not, dont update anything
+    } else { // else, it is a valid input, calculate the conversion
+        calculateRate(leftCurrencyCode(), rightCurrencyCode(), amountInput('left'), amountOutput('right'))
+    }
 })
 
 // dynamic rate updates
-document.querySelector('#right-currency-amount').addEventListener('input', () => {
-    calculateRate(leftCurrencyCode(), rightCurrencyCode(), amountInput('right'), amountOutput('left'))
+document.querySelector('#right-currency-amount').addEventListener('keypress', (e) => {
+    // check if key pressed is valid
+    if(!validChars.test(e.key)) {
+        e.preventDefault() // if not, dont update anything
+    } else { // else, it is a valid input, calculate the conversion
+        calculateRate(leftCurrencyCode(), rightCurrencyCode(), amountInput('right'), amountOutput('left'))
+    }
 })
 
 // swap the currencies
@@ -78,21 +89,21 @@ const calculateRate = (fromCurrency, toCurrency, fromInput, toInput) => {
 const swapSides = () => {
     // gather left side money value
     let leftMoney = document.querySelector('#left-currency-amount')
-    
+
     // gather right side money value
     let rightMoney = document.querySelector('#right-currency-amount')
-    
+
     // temp vars setup
     const tempCountryCode = leftCurrencyCode().selectedOptions[0].id
     const tempCurrencyCode = leftCurrencyCode().value
     const tempMoney = leftMoney.value
-    
+
     // set left side with the right's
     changeText('left', rightCurrencyCode().selectedOptions[0].id) // change the text
     changeFlag('left', rightCurrencyCode().selectedOptions[0].id) // change the flag
     leftCurrencyCode().value = rightCurrencyCode().value // update the selector
     leftMoney.value = rightMoney.value // change the input value
-    
+
     // set right side
     changeText('right', tempCountryCode)
     changeFlag('right', tempCountryCode)
