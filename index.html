@@ -1,14 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/flag-icon.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css'>
     <link rel="stylesheet" href="css/style.css">
     <title>Currency Converter</title>
 </head>
+
 <body>
-    
+    <div class="strip">
+        <header>
+            <div class="title">
+                <h1>Currency Converter</h1>
+            </div>
+        </header>
+        <section class="converter">
+            <section>
+                <!-- START 'TO' SECTION -->
+                <div class="input-box" id="from-section">
+                    <h3>United States of America</h3>
+                    <div class="currency-frame">
+                        <div class="country-flag">
+                            <span class="flag-icon flag-icon-us"></span>
+                        </div>
+                        <select name="currency" id="currency">
+                            <option value="CAD">Canadian Dollar</option>
+                            <option value="EUR">Euro</option>
+                            <option value="MXN">Mexican Peso</option>
+                            <option value="NZD">New Zealand Dollar</option>
+                            <option value="usd" selected>United States Dollar</option>
+                        </select>
+                    </div>
+
+                    <div class="currency-input-frame">
+                        <span id="currency-symbol">$</span>
+                        <input class="currency-input" value="1">
+                    </div>
+                </div>
+                <!-- END 'FROM' SECTION -->
+
+                <div class="exchange"><i class="fas fa-exchange-alt"></i></div>
+
+                <!-- START 'TO' SECTION -->
+                <div class="input-box" id="to-section">
+                    <h3>Canada</h3>
+                    <div class="currency-frame">
+                        <div class="country-flag">
+                            <span class="flag-icon flag-icon-ca"></span>
+                        </div>
+                        <select name="currency" id="currency">
+                            <option value="CAD" selected>Canadian Dollar</option>
+                            <option value="EUR">Euro</option>
+                            <option value="MXN">Mexican Peso</option>
+                            <option value="NZD">New Zealand Dollar</option>
+                            <option value="usd">United States Dollar</option>
+                        </select>
+                    </div>
+
+                    <div class="currency-input-frame">
+                        <span id="currency-symbol">$</span>
+                        <input class="currency-input">
+                    </div>
+                </div>
+                <!-- END 'TO' SECTION -->
+            </section>
+        </section>
+    </div>
+
     <script src="js/main.js"></script>
 </body>
+
 </html>
